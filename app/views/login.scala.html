@@ -1,0 +1,33 @@
+@(loginForm:Form[(String,String)], loginRoute:Call)(implicit flash:Flash)
+@import helper._
+
+
+@main("Log in") {
+<div class="container">
+	<div class="hero-unit">
+
+		<h2>@Messages("login.signIn")</h2>
+
+		<p>@Messages("login.info")</p>
+
+		@{loginForm.globalError.map { error =>
+		<div class="alert alert-error">{error.message}</div>
+		}}
+
+		@flash.get("success").map { message =>
+		<div class="alert alert-success">@message</div>
+		}
+
+		@helper.form(loginRoute) {
+			@helper.inputText(field = loginForm("user"), args = 'placeholder -> Messages("login.username.placeholder"),
+			'_showConstraints -> false,
+			'_label -> "")
+			@helper.inputPassword(field = loginForm("password"), args = 'placeholder -> Messages("login.password.placeholder"),
+			'_showConstraints -> false,
+			'_label -> "")
+
+			<button type="submit" class="btn btn-primary">@Messages("login.login")</button>
+		}
+	</div>
+</div>
+}	

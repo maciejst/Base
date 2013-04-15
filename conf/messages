@@ -1,0 +1,17 @@
+error.required = This field is required.
+error.email = You must enter a valid email address
+error.minLength = This field should have at least 2 characters.
+error.maxLength = This field is required at most 100 characters.
+error.login.auth.failure = Invalid username or password
+error.login.password = You must enter a valid password
+error.fileType = Invalid file type
+error.nameAlreadyInUse = Name is already in use
+
+login.login = Login
+login.signIn = Please sign in
+login.username.label = Username
+login.username.placeholder = Username
+login.password.label = Password
+login.password.placeholder = Password
+login.signInError = Please enter your username and password to continue
+login.info = "user" and "password" (minus the quotes)
