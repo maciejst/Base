@@ -1,4 +1,7 @@
-This is your new Play 2.0 application
+Play 2.0 base application
 =====================================
 
-This file will be packaged with your application, when using `play dist`.
+Play 2.0 + Scala
+
+Bootstrap
+Simple authentication
