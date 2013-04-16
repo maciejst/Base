@@ -15,31 +15,31 @@
             @inputText(
                 newForm("somethingname"), 
                 '_label -> "Somethingname", 
-                '_help -> "Please choose a valid somethingname.",
-                '_error -> newForm.globalError
+                '_error -> newForm.globalError,
+                '_help -> ""
             )
             
             @inputText(
                 newForm("email"), '_label -> "Email",
-                '_help -> "Enter a valid email address."
+                '_help -> ""
             )
             
             @inputText(
                 newForm("ip"), '_label -> "IP address",
-                '_help -> "Enter a valid IP address."
+                '_help -> ""
             )
             
             @inputPassword(
                 newForm("password.main"), 
                 '_label -> "Password",
-                '_help -> "A password must be at least 6 characters. "
+                '_help -> ""
             )
             
             @inputPassword(
                 newForm("password.confirm"), 
                 '_label -> "Repeat password",
-                '_help -> "Please repeat your password again.",
-                '_error -> newForm.error("password")
+                '_error -> newForm.error("password"),
+                '_help -> ""
             )
             
         </fieldset>
@@ -53,18 +53,21 @@
                 options = options(Countries.list),
                 '_default -> "--- Choose a country ---",
                 '_label -> "Country",
-                '_error -> newForm("profile.country").error.map(_.withMessage("Please select your country"))
+                '_error -> newForm("profile.country").error.map(_.withMessage("Please select your country")),
+                '_help -> ""
             )
             
             @textarea(
                 newForm("profile.address"), 
-                '_label -> "Address", 'cols -> 50
+                '_label -> "Address", 'cols -> 50,
+                '_help -> ""
             )
             
             @inputText(
                 newForm("profile.age"), 
                 '_label -> "Age", 'class -> "mini",
-                '_showConstraints -> false
+                '_showConstraints -> false,
+                '_help -> ""
             )
               
         </fieldset>

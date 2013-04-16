@@ -6,6 +6,7 @@ error.login.auth.failure = Invalid username or password
 error.login.password = You must enter a valid password
 error.fileType = Invalid file type
 error.nameAlreadyInUse = Name is already in use
+error.ip = You must enter a valid IP address
 
 login.login = Login
 login.signIn = Please sign in
