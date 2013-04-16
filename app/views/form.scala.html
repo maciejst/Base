@@ -1,0 +1,90 @@
+@(newForm: Form[Something])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+
+@main("New Form") {
+<div class="container">
+    
+    @helper.form(action = routes.NewForm.submit) {
+        
+        <fieldset>
+            <legend>Account informations</legend>
+            
+            @inputText(
+                newForm("somethingname"), 
+                '_label -> "Somethingname", 
+                '_help -> "Please choose a valid somethingname.",
+                '_error -> newForm.globalError
+            )
+            
+            @inputText(
+                newForm("email"), '_label -> "Email",
+                '_help -> "Enter a valid email address."
+            )
+            
+            @inputText(
+                newForm("ip"), '_label -> "IP address",
+                '_help -> "Enter a valid IP address."
+            )
+            
+            @inputPassword(
+                newForm("password.main"), 
+                '_label -> "Password",
+                '_help -> "A password must be at least 6 characters. "
+            )
+            
+            @inputPassword(
+                newForm("password.confirm"), 
+                '_label -> "Repeat password",
+                '_help -> "Please repeat your password again.",
+                '_error -> newForm.error("password")
+            )
+            
+        </fieldset>
+        
+        <fieldset>
+            
+            <legend>Contact informations</legend>
+            
+            @select(
+                newForm("profile.country"), 
+                options = options(Countries.list),
+                '_default -> "--- Choose a country ---",
+                '_label -> "Country",
+                '_error -> newForm("profile.country").error.map(_.withMessage("Please select your country"))
+            )
+            
+            @textarea(
+                newForm("profile.address"), 
+                '_label -> "Address", 'cols -> 50
+            )
+            
+            @inputText(
+                newForm("profile.age"), 
+                '_label -> "Age", 'class -> "mini",
+                '_showConstraints -> false
+            )
+              
+        </fieldset>
+        
+        <fieldset>
+            
+            @checkbox(
+                newForm("accept"), 
+                '_label -> None, '_text -> "You aggree the Terms and conditions",
+                '_showConstraints -> false
+            )
+            
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" class="btn btn-primary" value="Sign Up">
+            <a href="@routes.Application.index" class="btn btn-danger">Cancel</a>
+        </div>
+        
+    }
+</div>
+    
+}
